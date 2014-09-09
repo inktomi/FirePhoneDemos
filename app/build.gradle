@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion = "Amazon.com:Amazon Fire Phone SDK Addon:17"
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        applicationId "com.zappos.firephone"
+        minSdkVersion 17
+        targetSdkVersion 17
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    provided files('libs/eac-api.jar')
+    provided files('libs/euclid-api.jar')
+    provided files('libs/headtracking-api.jar')
+    provided files('libs/headtracking-filter-api.jar')
+
+}

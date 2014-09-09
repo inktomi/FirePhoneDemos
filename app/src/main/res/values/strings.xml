@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2014 Amazon.com, Inc. or its affiliates. -->
+<!-- All Rights Reserved. -->
+<resources>
+    <string name="app_name">Head Tracking</string>
+    <string name="main_activity">MainActivity</string>
+    <string name="poller">HeadTrackingPollerActivity</string>
+    <string name="listener">HeadTrackingListenerActivity</string>
+    <string name="circle">HeadTrackingCircleActivity</string>
+
+    <string name="xcoor">X Coordinate: %f mm</string>
+    <string name="ycoor">Y Coordinate: %f mm</string>
+    <string name="zcoor">Z Coordinate: %f mm</string>
+    <string name="facedetected">Face Detected: </string>
+    <string name="headtracking">Head Tracking: </string>
+</resources>

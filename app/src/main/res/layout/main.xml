@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2014 Amazon.com, Inc. or its affiliates. -->
+<!-- All Rights Reserved. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/main_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_activity" />
+
+    <Button
+            android:id="@+id/btn_poller"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/poller"
+            android:onClick="launchPoller" />
+
+    <Button
+            android:id="@+id/btn_listener"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/listener"
+            android:onClick="launchListener" />
+
+    <Button
+            android:id="@+id/btn_circle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/circle"
+            android:onClick="launchCircle" />
+
+</LinearLayout>
