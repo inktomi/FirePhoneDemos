@@ -1,11 +1,5 @@
-
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+.idea/*
 .DS_Store
-/build*
-.idea*
 *.iml
 gradle/wrapper/*
 gradlew.bat
@@ -27,7 +21,7 @@ bin/
 gen/
 
 # Gradle files
-.gradle/
+.gradle
 build/
 
 # Local configuration file (sdk path, etc)
