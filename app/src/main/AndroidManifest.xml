@@ -29,6 +29,15 @@
             android:name=".GestureActivity"
             android:label="@string/title_activity_gesture" >
         </activity>
+
+        <!-- WidgetBroadcastReceiver receives any intents thrown by the app widget to be consumed by this app. -->
+        <receiver android:name=".WidgetBroadcastReceiver"
+                  android:permission="com.amazon.permission.HERO_WIDGET_INTENT_SENDER"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="com.amazon.device.home.action.HERO_WIDGET" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

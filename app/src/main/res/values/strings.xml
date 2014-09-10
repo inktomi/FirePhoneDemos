@@ -25,5 +25,20 @@
     <string name="group1_item5">Group 1 Item 5</string>
     <string name="gesture_sensors">Gesture Sensors</string>
 
+    <!-- Home Wdiget -->
+    <string name="no_intent_data">No Intent Data</string>
+    <string name="tag_subsample_groupedgridwidget">Create GroupedGridHeroWidget</string>
+    <string name="tag_subsample_empty_groupedgridwidget">Empty GroupedGridHeroWidget</string>
+    <string name="tag_subsample_incrementbadge">Increment Badge Number</string>
+    <string name="tag_subsample_decrementbadge">Decrement Badge Number</string>
+
+    <!-- Grouped grid template -->
+    <string name="group_empty_grid">Empty Grid</string>
+    <string name="group_empty_label">Empty Label</string>
+    <string name="group_group">Group</string>
+    <string name="group_group_with_icon">Group with icon URIs</string>
+    <string name="group_item_in_group">Item %1$d in %2$s</string>
+    <string name="grouped_grid_play_duration">23:45</string>
+
 
 </resources>
