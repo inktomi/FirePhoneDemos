@@ -31,5 +31,6 @@ dependencies {
     provided files('libs/euclid-api.jar')
     provided files('libs/headtracking-api.jar')
     provided files('libs/headtracking-filter-api.jar')
+    provided files('libs/motiongestures-api.jar')
 
 }

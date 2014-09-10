@@ -8,22 +8,25 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
-import amazon.widget.NavigationPane;
+import com.amazon.motiongestures.Gesture;
+import com.amazon.motiongestures.GestureEvent;
+import com.amazon.motiongestures.GestureListener;
+import com.amazon.motiongestures.GestureManager;
+
 import amazon.widget.SidePanelLayout;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class GestureActivity extends Activity {
+public class GestureActivity extends Activity implements GestureListener {
     // TAG for use in logging.
     private static final String TAG = GestureActivity.class.getName();
 
     @InjectView(R.id.sidepanellayout)
     SidePanelLayout mSidePanelLayout;
-
-    @InjectView(R.id.leftPanel)
-    NavigationPane mNavigationPane;
 
     @InjectView(R.id.img_main)
     ImageView mImgMain;
@@ -31,10 +34,34 @@ public class GestureActivity extends Activity {
     @InjectView(R.id.gv_recommendations)
     GridView mGridView;
 
-    /**
-     * Create a new SidePanelsActivity.
-     * Demonstrates NavigationPane (left panel) and SidePanelLayout (right panel).
-     */
+    @InjectView(R.id.rb_ratings)
+    RatingBar mRbRatings;
+
+    @InjectView(R.id.tv_price)
+    TextView mTvPrice;
+
+    GestureManager mGestureManager;
+
+    // references to our images
+    private Integer[] mThumbIds = {
+            R.drawable.saucony,
+            R.drawable.nb,
+            R.drawable.converse,
+            R.drawable.sketchers,
+            R.drawable.keen,
+            R.drawable.brooks
+    };
+
+
+    private Integer[] mLargeIds = {
+            R.drawable.saucony2,
+            R.drawable.nb2,
+            R.drawable.converse2,
+            R.drawable.sketchers2,
+            R.drawable.keen2,
+            R.drawable.brooks2
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,38 +69,56 @@ public class GestureActivity extends Activity {
         setContentView(R.layout.activity_gesture);
         ButterKnife.inject(this);
 
-        updateMainImage(0);
-        setupRightPanel();
-    }
-
-    private void setupRightPanel() {
+        mTvPrice.setText("$45.99");
+        mRbRatings.setRating(4.5f);
         mGridView.setAdapter(new ImageAdapter(this));
+
+        // Obtain the GestureManager
+        mGestureManager = GestureManager.createInstance(this);
     }
 
     private void updateMainImage(int position) {
-        switch (position) {
-            case 0:
-                mImgMain.setImageDrawable(getResources().getDrawable(R.drawable.saucony2));
-                break;
-            case 1:
-                mImgMain.setImageDrawable(getResources().getDrawable(R.drawable.nb2));
-                break;
-            case 2:
-                mImgMain.setImageDrawable(getResources().getDrawable(R.drawable.converse2));
-                break;
-            case 3:
-                mImgMain.setImageDrawable(getResources().getDrawable(R.drawable.sketchers2));
-                break;
-            case 4:
-                mImgMain.setImageDrawable(getResources().getDrawable(R.drawable.keen2));
-                break;
-            case 5:
-                mImgMain.setImageDrawable(getResources().getDrawable(R.drawable.brooks2));
-                break;
-        }
-
+        mImgMain.setImageDrawable(getResources().getDrawable(mLargeIds[position]));
         mSidePanelLayout.getRightPanel().close();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Register listener only when it is needed
+        if (mGestureManager != null) {
+            Gesture peekGesture = Gesture.getGestureFromId(Gesture.PEEK);
+            if (peekGesture != null) {
+                mGestureManager.registerListener(this, peekGesture, GestureEvent.Direction.LEFT | GestureEvent.Direction.RIGHT);
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Make sure to release resources to save battery life
+        if (mGestureManager != null) {
+            mGestureManager.unregisterListener(this);
+        }
+    }
+
+    /**
+     * We know this is a peek event, because that is what we registered for.
+     * @param gestureEvent
+     */
+    @Override
+    public void onGestureEvent(GestureEvent gestureEvent) {
+        if (gestureEvent.action == GestureEvent.Action.ON) {
+            //Peek is happening, make things visible
+            mTvPrice.setVisibility(View.VISIBLE);
+            mRbRatings.setVisibility(View.VISIBLE);
+        } else {
+            mTvPrice.setVisibility(View.GONE);
+            mRbRatings.setVisibility(View.GONE);
+        }
     }
 
     public class ImageAdapter extends BaseAdapter {
@@ -116,15 +161,6 @@ public class GestureActivity extends Activity {
             return imageView;
         }
 
-        // references to our images
-        private Integer[] mThumbIds = {
-                R.drawable.saucony,
-                R.drawable.nb,
-                R.drawable.converse,
-                R.drawable.sketchers,
-                R.drawable.keen,
-                R.drawable.brooks
-        };
     }
 
 }
