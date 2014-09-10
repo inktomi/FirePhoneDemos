@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
+
+<!-- navmenu element required to be defined as a NavigationPaneMenu. -->
+<navmenu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <!-- Header for navigation menu. -->
+    <navheader android:title="@string/nav_header"/>
+    <navitem android:title="@string/nav_1"/>
+    <navitem android:title="@string/nav_2"/>
+    <navitem android:title="@string/nav_3"/>
+    <navitem android:title="@string/nav_4"/>
+    <navitem android:title="@string/nav_5"/>
+
+    <!-- Subgroup of navigation menu, with a dropdown list of nav items. -->
+    <navgroup android:id="@+id/nav_panel_group1"
+        android:title="@string/nav_subheader">
+        <navitem android:id="@+id/group1_item1"
+            android:title="@string/group1_item1"
+            android:checkable="false"/>
+        <navitem android:id="@+id/group1_item2"
+            android:title="@string/group1_item2"
+            android:checkable="false"/>
+        <navitem android:id="@+id/group1_item3"
+            android:title="@string/group1_item3"
+            android:checkable="false"/>
+        <navitem android:id="@+id/group1_item4"
+            android:title="@string/group1_item4"
+            android:checkable="false"/>
+        <navitem android:id="@+id/group1_item5"
+            android:title="@string/group1_item5"
+            android:checkable="false"/>
+    </navgroup>
+</navmenu>

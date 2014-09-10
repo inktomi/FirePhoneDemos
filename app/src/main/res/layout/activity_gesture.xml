@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
+
+<!-- Give this Layout a left, content, and right panel. -->
+<amazon.widget.SidePanelLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:amazon="http://schemas.android.com/apk/res/amazon"
+    android:id="@+id/sidepanellayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    amazon:clipToPanel="true"
+    amazon:leftPanel="@+id/leftPanel"
+    amazon:content="@+id/fl_content"
+    amazon:rightPanel="@+id/rightPanel" >
+
+    <!-- Left Panel, NavigationPane containing a menu. -->
+    <amazon.widget.NavigationPane
+        android:id="@id/leftPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        amazon:appTitle="@string/app_name"
+        amazon:navMenu="@menu/menu_sidepanel_navigationpane" />
+
+    <!-- Content-->
+    <FrameLayout
+        android:id="@id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:id="@+id/img_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </FrameLayout>
+
+    <!-- Right Panel -->
+    <LinearLayout
+        android:id="@id/rightPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <GridView
+            android:id="@+id/gv_recommendations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="12dp"
+            android:verticalSpacing="12dp"
+            android:padding="12dp"
+            android:numColumns="2"
+            >
+        </GridView>
+    </LinearLayout>
+
+</amazon.widget.SidePanelLayout>

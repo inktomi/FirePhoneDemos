@@ -2,15 +2,28 @@
 <!-- Copyright (c) 2014 Amazon.com, Inc. or its affiliates. -->
 <!-- All Rights Reserved. -->
 <resources>
-    <string name="app_name">Head Tracking</string>
-    <string name="main_activity">MainActivity</string>
-    <string name="poller">HeadTrackingPollerActivity</string>
-    <string name="listener">HeadTrackingListenerActivity</string>
-    <string name="circle">HeadTrackingCircleActivity</string>
+    <string name="app_name">Fire Phone Demo</string>
 
-    <string name="xcoor">X Coordinate: %f mm</string>
-    <string name="ycoor">Y Coordinate: %f mm</string>
-    <string name="zcoor">Z Coordinate: %f mm</string>
-    <string name="facedetected">Face Detected: </string>
-    <string name="headtracking">Head Tracking: </string>
+    <string name="head_tracking">Head Tracking</string>
+    <string name="title_activity_gesture">GestureActivity</string>
+
+    <!--Gestures-->
+    <string name="title_activity_side_panels">SidePanelsActivity</string>
+    <string name="content_panel">Content Panel</string>
+    <string name="right_side_panel">Right Panel</string>
+    <string name="nav_header">Navigation Header</string>
+    <string name="nav_1">Nav Item 1</string>
+    <string name="nav_2">Nav Item 2</string>
+    <string name="nav_3">Nav Item 3</string>
+    <string name="nav_4">Nav Item 4</string>
+    <string name="nav_5">Nav Item 5</string>
+    <string name="nav_subheader">Subgroup</string>
+    <string name="group1_item1">Group 1 Item 1</string>
+    <string name="group1_item2">Group 1 Item 2</string>
+    <string name="group1_item3">Group 1 Item 3</string>
+    <string name="group1_item4">Group 1 Item 4</string>
+    <string name="group1_item5">Group 1 Item 5</string>
+    <string name="gesture_sensors">Gesture Sensors</string>
+
+
 </resources>
