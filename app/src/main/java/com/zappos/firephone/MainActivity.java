@@ -197,8 +197,8 @@ public class MainActivity extends Activity {
             GroupedGridHeroWidget.GridEntry gridEntry = new GroupedGridHeroWidget.GridEntry(getApplicationContext());
 
             // Sets the entry information and text.
-            gridEntry.setContentIntent(heroWidgetIntent)
-                    .setPlayInfo(true, getString(R.string.grouped_grid_play_duration));
+            // You can also show a "play" icon in case this represents media
+            gridEntry.setContentIntent(heroWidgetIntent);
 
             // Alternate the thumbnail between a URI and a drawable resource.
             if (0 == (i % 2)) {
