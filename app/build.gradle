@@ -32,5 +32,6 @@ dependencies {
     provided files('libs/headtracking-api.jar')
     provided files('libs/headtracking-filter-api.jar')
     provided files('libs/motiongestures-api.jar')
+    provided files('libs/home-api.jar')
 
 }

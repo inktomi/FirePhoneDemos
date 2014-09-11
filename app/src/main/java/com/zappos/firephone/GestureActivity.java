@@ -1,6 +1,5 @@
 package com.zappos.firephone;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -16,17 +15,11 @@ import com.amazon.motiongestures.GestureEvent;
 import com.amazon.motiongestures.GestureListener;
 import com.amazon.motiongestures.GestureManager;
 
-import amazon.widget.SidePanelLayout;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class GestureActivity extends Activity implements GestureListener {
-    // TAG for use in logging.
-    private static final String TAG = GestureActivity.class.getName();
-
-    @InjectView(R.id.sidepanellayout)
-    SidePanelLayout mSidePanelLayout;
+public class GestureActivity extends BaseActivity implements GestureListener {
 
     @InjectView(R.id.img_main)
     ImageView mImgMain;

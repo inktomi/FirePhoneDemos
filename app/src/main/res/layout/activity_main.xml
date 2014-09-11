@@ -10,19 +10,6 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_head_tracking"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/head_tracking"
-    />
-
-    <Button
-        android:id="@+id/btn_gestures"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/gesture_sensors"
-        />
-    <Button
         android:id="@+id/btn_set_groupedgridwidget"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

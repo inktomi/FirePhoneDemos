@@ -1,11 +1,9 @@
 package com.zappos.firephone;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.amazon.device.home.GroupedGridHeroWidget;
@@ -16,21 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
+
 @SuppressWarnings("unused")
-public class MainActivity extends Activity {
-    private static final String TAG = MainActivity.class.getSimpleName();
+public class MainActivity extends BaseActivity {
 
     // Used to get data from the intent from our home widget
     public static final String EXTRA_KEY = "data";
-
-    @InjectView(R.id.btn_head_tracking)
-    Button btnHeadTracking;
-
-    @InjectView(R.id.btn_gestures)
-    Button btnGestures;
+    private static final String TAG = MainActivity.class.getName();
 
     // Home API supports using local application resources as well as remote URLs to assets.
     private final static Uri AMZN_BADGE_URI = Uri.parse("https://images-na.ssl-images-amazon.com/images/G/01/AmazonMobileApps/amazon-apps-store-us-white.png");
@@ -67,16 +59,6 @@ public class MainActivity extends Activity {
 
         if( null != data )
         Log.v(TAG, "Data was set, it is: " + data);
-    }
-
-    @OnClick(R.id.btn_head_tracking)
-    public void headTrackingClicked() {
-        startActivity(new Intent(this, HeadTrackingCircleActivity.class));
-    }
-
-    @OnClick(R.id.btn_gestures)
-    public void gesturesClicked() {
-        startActivity(new Intent(this, GestureActivity.class));
     }
 
     /**

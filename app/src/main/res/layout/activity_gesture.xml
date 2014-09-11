@@ -1,76 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (c) 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
 
-<!-- Give this Layout a left, content, and right panel. -->
-<amazon.widget.SidePanelLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:amazon="http://schemas.android.com/apk/res/amazon"
-    android:id="@+id/sidepanellayout"
+
+    android:id="@id/fl_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    amazon:clipToPanel="true"
-    amazon:leftPanel="@+id/leftPanel"
-    amazon:content="@+id/fl_content"
-    amazon:rightPanel="@+id/rightPanel" >
-
-    <!-- Left Panel, NavigationPane containing a menu. -->
-    <amazon.widget.NavigationPane
-        android:id="@id/leftPanel"
+    >
+    <ImageView
+        android:id="@+id/img_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        amazon:appTitle="@string/app_name"
-        amazon:navMenu="@menu/menu_sidepanel_navigationpane" />
-
-    <!-- Content-->
-    <RelativeLayout
-        android:id="@id/fl_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/holo_purple"
-        >
-        <ImageView
-            android:id="@+id/img_main"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:contentDescription="main image"
-            android:scaleType="fitCenter"
-            android:src="@drawable/saucony2"
-            android:layout_centerInParent="true"
-            />
-        <RatingBar
-            android:id="@+id/rb_ratings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_main"
-            android:visibility="gone"
-            />
-        <TextView
-            android:id="@+id/tv_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/rb_ratings"
-            android:visibility="gone"
-            android:textSize="25sp"
+        android:layout_height="300dp"
+        android:contentDescription="main image"
+        android:scaleType="fitCenter"
+        android:src="@drawable/saucony2"
+        android:layout_centerInParent="true"
         />
-    </RelativeLayout>
-
-    <!-- Right Panel -->
-    <LinearLayout
-        android:id="@id/rightPanel"
+    <RatingBar
+        android:id="@+id/rb_ratings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <GridView
-            android:id="@+id/gv_recommendations"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:horizontalSpacing="12dp"
-            android:verticalSpacing="12dp"
-            android:padding="12dp"
-            android:numColumns="2"
-            >
-        </GridView>
-    </LinearLayout>
-
-</amazon.widget.SidePanelLayout>
+        android:layout_below="@id/img_main"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rb_ratings"
+        android:visibility="gone"
+        android:textSize="25sp"
+        />
+</RelativeLayout>
