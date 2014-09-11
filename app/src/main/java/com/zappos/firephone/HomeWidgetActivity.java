@@ -1,6 +1,5 @@
 package com.zappos.firephone;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +7,6 @@ import android.widget.Toast;
 
 import com.amazon.device.home.GroupedGridHeroWidget;
 import com.amazon.device.home.HeroWidgetIntent;
-import com.amazon.device.home.HomeManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +14,15 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-
+/**
+ * Demonstrates how to use the home widget APIs for the Fire Phone
+ *
+ * Created by mattruno on 9/11/14.
+ */
 @SuppressWarnings("unused")
-public class MainActivity extends BaseActivity {
+public class HomeWidgetActivity extends BaseActivity {
 
-    // Used to get data from the intent from our home widget
-    public static final String EXTRA_KEY = "data";
-    private static final String TAG = MainActivity.class.getName();
+    private static final String TAG = HomeWidgetActivity.class.getSimpleName();
 
     // Home API supports using local application resources as well as remote URLs to assets.
     private final static Uri AMZN_BADGE_URI = Uri.parse("https://images-na.ssl-images-amazon.com/images/G/01/AmazonMobileApps/amazon-apps-store-us-white.png");
@@ -30,35 +30,16 @@ public class MainActivity extends BaseActivity {
     // Use this Receiver as the intent target for GridEntries in the app widget.
     private static final String TARGET_CLASS_NAME = WidgetBroadcastReceiver.class.getName();
 
-    // HomeManager to interface with updating home items.
-    private HomeManager mHomeManager;
-
     // Arbitrary sample group size.
     private static final int SAMPLE_GROUP_SIZE = 8;
-
-    // Integer to store current badge number.
-    private static int mBadgeNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        setContentView(R.layout.activity_widget);
 
         ButterKnife.inject(this);
-
-        try {
-            mHomeManager = HomeManager.getInstance(this);
-        } catch (IllegalArgumentException e) {
-            Log.e(TAG, "No HomeManager instance is available for this application", e);
-        }
-
-        // Assuming this activity was launched by an app widget item, we can display
-        // data specific to the app widget item that was clicked.
-        final Intent intent = getIntent();
-        final String data = intent.getStringExtra(EXTRA_KEY);
-
-        if( null != data )
-        Log.v(TAG, "Data was set, it is: " + data);
     }
 
     /**
@@ -85,28 +66,6 @@ public class MainActivity extends BaseActivity {
         toast.show();
 
         getAndUpdateBaselineWidget(true);
-    }
-
-    /**
-     * Click handler defined and set in the layout.
-     * Increments the numeric badge on the app icon.
-     */
-    @OnClick(R.id.btn_increment_numeric_badge_number)
-    public void onIncrementNumericBadge() {
-        Log.v(TAG, "onIncreaseNumericBadge, incrementing mBadgeNumber to " + (mBadgeNumber+1));
-        mHomeManager.updateNumericBadge(++mBadgeNumber);
-    }
-
-    /**
-     * Click handler defined and set in the layout.
-     * Decreases the numeric badge on the app icon, does nothing if badge at 0.
-     */
-    @OnClick(R.id.btn_decrement_numeric_badge_number)
-    public void onDecrementNumericBadge() {
-        if (mBadgeNumber > 0) {
-            Log.v(TAG, "onDecreaseNumericBadge, decrementing mBadgeNumber to " + (mBadgeNumber-1));
-            mHomeManager.updateNumericBadge(--mBadgeNumber);
-        }
     }
 
     /**
@@ -198,5 +157,4 @@ public class MainActivity extends BaseActivity {
 
         return group;
     }
-
 }

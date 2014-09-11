@@ -6,6 +6,7 @@
 
     <string name="head_tracking">Head Tracking</string>
     <string name="title_activity_gesture">GestureActivity</string>
+    <string name="title_home_widgets">Home Widgets</string>
 
     <!--Gestures-->
     <string name="title_activity_side_panels">SidePanelsActivity</string>

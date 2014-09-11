@@ -10,18 +10,6 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_set_groupedgridwidget"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tag_subsample_groupedgridwidget"/>
-
-    <Button
-        android:id="@+id/btn_set_empty_groupedgridwidget"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tag_subsample_empty_groupedgridwidget" />
-
-    <Button
         android:id="@+id/btn_increment_numeric_badge_number"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

@@ -25,10 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HeadTrackingCircleActivity" />
-        <activity
-            android:name=".GestureActivity"
-            android:label="@string/title_activity_gesture" >
-        </activity>
+        <activity android:name=".GestureActivity" android:label="@string/title_activity_gesture" />
+        <activity android:name=".HomeWidgetActivity" android:label="@string/title_home_widgets"/>
 
         <!-- WidgetBroadcastReceiver receives any intents thrown by the app widget to be consumed by this app. -->
         <receiver android:name=".WidgetBroadcastReceiver"
