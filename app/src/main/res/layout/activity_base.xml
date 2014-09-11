@@ -5,7 +5,8 @@
 <amazon.widget.SidePanelLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:amazon="http://schemas.android.com/apk/res/amazon"
-    android:id="@+id/sidepanellayout"
+    xmlns:euclid="http://schemas.android.com/apk/res/euclid"
+    android:id="@+id/side_panel_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     amazon:clipToPanel="true"
@@ -22,11 +23,38 @@
         amazon:navMenu="@menu/menu_sidepanel_navigationpane" />
 
     <!-- Content-->
+    <!-- ZShadowReceiver for the main content.-->
+    <!-- Header ZShadowReceiver for the ZHeaderNavigationBar -->
     <FrameLayout
         android:id="@id/fl_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+        <com.amazon.euclid.widget.ZShadowReceiver
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            euclid:shadowDepth="@euclid:dimen/globalLayerScreen"
+            android:background="@euclid:drawable/translucent_background_light">
+
+            <com.amazon.euclid.widget.ZContainer
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                euclid:shadowMode="medium" >
+
+                <com.amazon.euclid.widget.ZHeaderNavigationBar
+                    android:id="@+id/zheadernavigationbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    euclid:layout_depth="wrap_content"
+                    amazon:headerTitle="@string/app_name"/>
+            </com.amazon.euclid.widget.ZContainer>
+
+        <FrameLayout
+                android:id="@+id/content_panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"/>
+        </com.amazon.euclid.widget.ZShadowReceiver>
+
     </FrameLayout>
 
     <!-- Right Panel -->

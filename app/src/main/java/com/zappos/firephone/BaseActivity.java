@@ -2,12 +2,15 @@ package com.zappos.firephone;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.amazon.device.home.HomeManager;
+import com.amazon.euclid.widget.ZHeaderNavigationBar;
 
 import amazon.widget.NavigationPane;
 import amazon.widget.NavigationPaneMenuItem;
@@ -25,6 +28,8 @@ public class BaseActivity extends Activity {
     protected SidePanelLayout mSidePanelLayout;
     protected NavigationPane mLeftPanel;
     private FrameLayout mFrameLayout;
+
+    private ZHeaderNavigationBar mHeaderNavBar;
 
     // HomeManager to interface with updating home items.
     protected HomeManager mHomeManager;
@@ -44,9 +49,19 @@ public class BaseActivity extends Activity {
         }
 
         // We can't inject with butterknife here
-        mSidePanelLayout = (SidePanelLayout) findViewById(R.id.sidepanellayout);
+        mSidePanelLayout = (SidePanelLayout) findViewById(R.id.side_panel_layout);
         mLeftPanel = (NavigationPane) findViewById(R.id.leftPanel);
-        mFrameLayout = (FrameLayout) findViewById(R.id.fl_content);
+        mFrameLayout = (FrameLayout) findViewById(R.id.content_panel);
+        mHeaderNavBar = (ZHeaderNavigationBar) findViewById(R.id.zheadernavigationbar);
+
+        // Set the title given the label for the activity in the manifest.
+        PackageManager packageManager = getPackageManager();
+        try {
+            ActivityInfo activityInfo = packageManager.getActivityInfo(getComponentName(), 0);
+            setTitle(getString(activityInfo.labelRes));
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.v(TAG, "Failed to pull out activity label to set the title automatically.", e);
+        }
 
         // Assuming this activity was launched by an app widget item, we can display
         // data specific to the app widget item that was clicked.
@@ -95,6 +110,15 @@ public class BaseActivity extends Activity {
             super.setContentView(layoutResID);
         } else {
             getLayoutInflater().inflate(layoutResID, mFrameLayout);
+        }
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+        super.setTitle(title);
+
+        if( null != mHeaderNavBar ){
+            mHeaderNavBar.setMainTitle(title);
         }
     }
 }
