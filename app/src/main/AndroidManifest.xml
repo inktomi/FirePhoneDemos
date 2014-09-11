@@ -9,10 +9,14 @@
         android:theme="@style/AppTheme" >
 
         <!-- Uses the Enhanced Amazon Controls (EAC) library -->
-        <uses-library android:name="eaclibrary" android:required="true" />
+        <uses-library
+            android:name="eaclibrary"
+            android:required="true" />
 
         <!-- Euclid controls require euclidlibary -->
-        <uses-library android:name="euclidlibrary" android:required="true" />
+        <uses-library
+            android:name="euclidlibrary"
+            android:required="true" />
 
         <!-- Home widget -->
         <uses-library android:name="com.amazon.device.home" />
@@ -24,14 +28,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HeadTrackingCircleActivity" />
-        <activity android:name=".GestureActivity" android:label="@string/title_activity_gesture" />
-        <activity android:name=".HomeWidgetActivity" android:label="@string/title_home_widgets"/>
+        <activity android:name=".HeadTrackingCircleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zappos.firephone.MainActivity" />
+        </activity>
+        <activity
+            android:name=".GestureActivity"
+            android:label="@string/title_activity_gesture">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zappos.firephone.MainActivity" />
+        </activity>
+        <activity
+            android:name=".HomeWidgetActivity"
+            android:label="@string/title_home_widgets">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zappos.firephone.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".NumericBadgeActivity"
+            android:label="@string/title_activity_numeric_badge"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zappos.firephone.MainActivity" />
+        </activity>
 
         <!-- WidgetBroadcastReceiver receives any intents thrown by the app widget to be consumed by this app. -->
-        <receiver android:name=".WidgetBroadcastReceiver"
-                  android:permission="com.amazon.permission.HERO_WIDGET_INTENT_SENDER"
-                  android:exported="true">
+        <receiver
+            android:name=".WidgetBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.amazon.permission.HERO_WIDGET_INTENT_SENDER" >
             <intent-filter>
                 <action android:name="com.amazon.device.home.action.HERO_WIDGET" />
             </intent-filter>

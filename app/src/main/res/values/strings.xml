@@ -2,13 +2,13 @@
 <!-- Copyright (c) 2014 Amazon.com, Inc. or its affiliates. -->
 <!-- All Rights Reserved. -->
 <resources>
-    <string name="app_name">Fire Phone Demo</string>
 
+    <string name="app_name">Fire Phone Demo</string>
     <string name="head_tracking">Head Tracking</string>
     <string name="title_activity_gesture">GestureActivity</string>
     <string name="title_home_widgets">Home Widgets</string>
 
-    <!--Gestures-->
+    <!-- Gestures -->
     <string name="title_activity_side_panels">SidePanelsActivity</string>
     <string name="content_panel">Content Panel</string>
     <string name="right_side_panel">Right Panel</string>
@@ -40,6 +40,8 @@
     <string name="group_group_with_icon">Group with icon URIs</string>
     <string name="group_item_in_group">Item %1$d in %2$s</string>
     <string name="grouped_grid_play_duration">23:45</string>
-
+    <string name="title_activity_numeric_badge">Numeric Badges</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

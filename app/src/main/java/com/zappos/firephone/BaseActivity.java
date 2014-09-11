@@ -2,26 +2,16 @@ package com.zappos.firephone;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
-import com.amazon.device.home.GroupedGridHeroWidget;
-import com.amazon.device.home.HeroWidgetIntent;
 import com.amazon.device.home.HomeManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import amazon.widget.NavigationPane;
 import amazon.widget.NavigationPaneMenuItem;
 import amazon.widget.SidePanelLayout;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
 
 /**
  * A BaseActivity is a good way to have a consistent navigation menu throughout your app. We use it here for that purpose.
@@ -81,6 +71,10 @@ public class BaseActivity extends Activity {
                         break;
                     case R.id.menu_home_widget:
                         startActivity(new Intent(BaseActivity.this, HomeWidgetActivity.class));
+                        break;
+                    case R.id.menu_numeric_badge:
+                        startActivity(new Intent(BaseActivity.this, NumericBadgeActivity.class));
+                        break;
                     default:
                         return false;
                 }

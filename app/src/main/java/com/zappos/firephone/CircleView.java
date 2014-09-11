@@ -7,8 +7,6 @@
  */
 package com.zappos.firephone;
 
-import com.amazon.headtracking.HeadTrackingEvent;
-
 import android.R.color;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -17,7 +15,7 @@ import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import java.lang.Math;
+import com.amazon.headtracking.HeadTrackingEvent;
 
 /**
  * A custom View that takes HeadTrackingEvents and draws a circle
