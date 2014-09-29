@@ -10,13 +10,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     amazon:clipToPanel="true"
-    amazon:leftPanel="@+id/leftPanel"
-    amazon:content="@+id/fl_content"
-    amazon:rightPanel="@+id/rightPanel" >
+    amazon:leftPanel="@+id/left_panel"
+    amazon:content="@+id/main_panel"
+    amazon:right_panel="@+id/right_panel" >
 
     <!-- Left Panel, NavigationPane containing a menu. -->
     <amazon.widget.NavigationPane
-        android:id="@id/leftPanel"
+        android:id="@id/left_panel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         amazon:appTitle="@string/app_name"
@@ -26,7 +26,7 @@
     <!-- ZShadowReceiver for the main content.-->
     <!-- Header ZShadowReceiver for the ZHeaderNavigationBar -->
     <FrameLayout
-        android:id="@id/fl_content"
+        android:id="@id/main_panel"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <com.amazon.euclid.widget.ZShadowReceiver
@@ -59,7 +59,7 @@
 
     <!-- Right Panel -->
     <LinearLayout
-        android:id="@id/rightPanel"
+        android:id="@id/right_panel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
