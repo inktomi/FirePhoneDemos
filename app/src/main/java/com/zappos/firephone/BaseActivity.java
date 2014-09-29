@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.amazon.device.home.HomeManager;
 import com.amazon.euclid.widget.ZHeaderNavigationBar;
@@ -28,6 +29,7 @@ public class BaseActivity extends Activity {
     protected SidePanelLayout mSidePanelLayout;
     protected NavigationPane mLeftPanel;
     private FrameLayout mFrameLayout;
+    protected LinearLayout mRightPanel;
 
     private ZHeaderNavigationBar mHeaderNavBar;
 
@@ -50,7 +52,8 @@ public class BaseActivity extends Activity {
 
         // We can't inject with butterknife here
         mSidePanelLayout = (SidePanelLayout) findViewById(R.id.side_panel_layout);
-        mLeftPanel = (NavigationPane) findViewById(R.id.leftPanel);
+        mLeftPanel = (NavigationPane) findViewById(R.id.left_panel);
+        mRightPanel = (LinearLayout) findViewById(R.id.right_panel);
         mFrameLayout = (FrameLayout) findViewById(R.id.content_panel);
         mHeaderNavBar = (ZHeaderNavigationBar) findViewById(R.id.zheadernavigationbar);
 

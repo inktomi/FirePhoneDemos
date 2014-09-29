@@ -12,7 +12,7 @@
     amazon:clipToPanel="true"
     amazon:leftPanel="@+id/left_panel"
     amazon:content="@+id/main_panel"
-    amazon:right_panel="@+id/right_panel" >
+    amazon:rightPanel="@+id/right_panel" >
 
     <!-- Left Panel, NavigationPane containing a menu. -->
     <amazon.widget.NavigationPane
@@ -62,18 +62,6 @@
         android:id="@id/right_panel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <GridView
-            android:id="@+id/gv_recommendations"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:horizontalSpacing="12dp"
-            android:verticalSpacing="12dp"
-            android:padding="12dp"
-            android:numColumns="2"
-            >
-        </GridView>
-    </LinearLayout>
+        android:orientation="vertical" />
 
 </amazon.widget.SidePanelLayout>

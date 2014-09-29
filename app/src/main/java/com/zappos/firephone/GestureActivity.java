@@ -24,9 +24,6 @@ public class GestureActivity extends BaseActivity implements GestureListener {
     @InjectView(R.id.img_main)
     ImageView mImgMain;
 
-    @InjectView(R.id.gv_recommendations)
-    GridView mGridView;
-
     @InjectView(R.id.rb_ratings)
     RatingBar mRbRatings;
 
@@ -64,10 +61,19 @@ public class GestureActivity extends BaseActivity implements GestureListener {
 
         mTvPrice.setText("$45.99");
         mRbRatings.setRating(4.5f);
-        mGridView.setAdapter(new ImageAdapter(this));
+
+        setupRightPanel();
 
         // Obtain the GestureManager
         mGestureManager = GestureManager.createInstance(this);
+    }
+
+    private void setupRightPanel() {
+
+        View v = getLayoutInflater().inflate(R.layout.recommendations, mRightPanel);
+
+        GridView mGridView = (GridView) v.findViewById(R.id.gv_recommendations);
+        mGridView.setAdapter(new ImageAdapter(this));
     }
 
     private void updateMainImage(int position) {
