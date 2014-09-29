@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zappos.firephone" >
 
+    <!-- declare the Firefly permission -->
+    <uses-permission android:name="com.amazon.mw.permission.PLUGIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -21,54 +24,73 @@
         <!-- Home widget -->
         <uses-library android:name="com.amazon.device.home" />
 
-        <activity android:name=".MainActivity" android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".HeadTrackingCircleActivity"
-                  android:label="@string/head_tracking"
-                  android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.zappos.firephone.MainActivity" />
-        </activity>
-        <activity
-            android:name=".GestureActivity"
-            android:label="@string/title_activity_gesture"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.zappos.firephone.MainActivity" />
-        </activity>
-        <activity
-            android:name=".HomeWidgetActivity"
-            android:label="@string/title_home_widgets"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.zappos.firephone.MainActivity" />
-        </activity>
+        <!-- Uses the Firefly library -->
+        <uses-library android:name="com.amazon.mw.sdk" />
 
-        <activity
-            android:name=".NumericBadgeActivity"
-            android:label="@string/title_activity_numeric_badge"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.zappos.firephone.MainActivity" />
-        </activity>
+        <!-- Register the Firefly plugin service.
+ 
+     The PLUGIN_CONSUMER permission protects the plugin by ensuring
+     only Firefly has permission to communicate with it.
+ 
+     exported="true" allows external applications or services (Firefly)
+     to interact with this plugin. -->
+    <service android:name=".FoneVOIPPlugin"
+        android:permission="com.amazon.mw.permission.PLUGIN_CONSUMER"
+        android:exported="true">
+          <!-- Set the intent filter for Firefly plugins -->
+          <intent-filter>
+            <action android:name="amazon.intent.action.mw.IMPORT_PLUGIN" />
+          </intent-filter>
+    </service>
 
-        <!-- WidgetBroadcastReceiver receives any intents thrown by the app widget to be consumed by this app. -->
-        <receiver
-            android:name=".WidgetBroadcastReceiver"
-            android:exported="true"
-            android:permission="com.amazon.permission.HERO_WIDGET_INTENT_SENDER" >
-            <intent-filter>
-                <action android:name="com.amazon.device.home.action.HERO_WIDGET" />
-            </intent-filter>
-        </receiver>
-    </application>
+    <activity android:name=".MainActivity" android:label="@string/app_name" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".HeadTrackingCircleActivity"
+        android:label="@string/head_tracking"
+        android:parentActivityName=".MainActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.zappos.firephone.MainActivity" />
+    </activity>
+    <activity
+        android:name=".GestureActivity"
+        android:label="@string/title_activity_gesture"
+        android:parentActivityName=".MainActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.zappos.firephone.MainActivity" />
+    </activity>
+    <activity
+        android:name=".HomeWidgetActivity"
+        android:label="@string/title_home_widgets"
+        android:parentActivityName=".MainActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.zappos.firephone.MainActivity" />
+    </activity>
 
-</manifest>
+    <activity
+        android:name=".NumericBadgeActivity"
+        android:label="@string/title_activity_numeric_badge"
+        android:parentActivityName=".MainActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.zappos.firephone.MainActivity" />
+    </activity>
+
+    <!-- WidgetBroadcastReceiver receives any intents thrown by the app widget to be consumed by this app. -->
+    <receiver
+        android:name=".WidgetBroadcastReceiver"
+        android:exported="true"
+        android:permission="com.amazon.permission.HERO_WIDGET_INTENT_SENDER" >
+        <intent-filter>
+            <action android:name="com.amazon.device.home.action.HERO_WIDGET" />
+        </intent-filter>
+    </receiver>
+</application>
+
+    </manifest>

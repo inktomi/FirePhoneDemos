@@ -33,5 +33,6 @@ dependencies {
     provided files('libs/headtracking-filter-api.jar')
     provided files('libs/motiongestures-api.jar')
     provided files('libs/home-api.jar')
+    provided files('libs/firefly-api.jar')
 
 }
