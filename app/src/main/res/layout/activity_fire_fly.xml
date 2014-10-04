@@ -2,22 +2,28 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding"
+    >
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/title_size"
-        android:text="@string/recommendations"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/padding"
+        android:padding="@dimen/padding"
         />
-    <GridView
-        android:id="@+id/gv_recommendations"
+    <RatingBar
+        android:id="@+id/rb_ratings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:horizontalSpacing="@dimen/padding"
-        android:verticalSpacing="@dimen/padding"
         android:padding="@dimen/padding"
-        android:numColumns="2"
+        />
+    <TextView
+        android:id="@+id/tv_upc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title_size"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
         />
 </LinearLayout>

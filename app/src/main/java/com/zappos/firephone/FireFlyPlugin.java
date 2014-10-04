@@ -12,23 +12,23 @@ import com.amazon.mw.plugin.SimplePlugin;
 /**
  * Created by jitse on 9/16/14.
  */
-public class FoneVOIPPlugin extends SimplePlugin {
+public class FireFlyPlugin extends SimplePlugin {
     // TAG used for logging
-    private static String TAG = FoneVOIPPlugin.class.getSimpleName();
+    private static String TAG = FireFlyPlugin.class.getSimpleName();
 
-    // Configure the plugin to resolve phone number identifications by
-    // adding the PHONENUMBER facet type to the DigitalEntityFilter object.
+    // Configure the plugin to resolve product identifications by
+    // adding the PRODUCT facet type to the DigitalEntityFilter object.
     @Override
     public DigitalEntityFilter getDigitalEntityFilter() {
         DigitalEntityFilter filter = new DigitalEntityFilter();
-        filter.addRequiredFacets(FacetType.PHONENUMBER);
+        filter.addRequiredFacets(FacetType.PRODUCT);
         return filter;
     }
 
     // Define a factory method to create a DigitalEntityUI object for this plugin.
     @Override
     public DigitalEntityUI createDigitalEntityUI(DigitalEntity digitalEntity) {
-        return new FoneVOIPDigitalEntityUI(digitalEntity);
+        return new FireFlyDigitalEntityUI(digitalEntity);
     }
 
     // Define an error callback in case something goes wrong; for example, the service takes
