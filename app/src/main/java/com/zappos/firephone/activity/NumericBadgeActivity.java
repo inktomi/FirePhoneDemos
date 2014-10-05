@@ -1,7 +1,9 @@
-package com.zappos.firephone;
+package com.zappos.firephone.activity;
 
 import android.os.Bundle;
 import android.util.Log;
+
+import com.zappos.firephone.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

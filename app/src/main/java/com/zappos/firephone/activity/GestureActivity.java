@@ -1,4 +1,4 @@
-package com.zappos.firephone;
+package com.zappos.firephone.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import com.amazon.motiongestures.Gesture;
 import com.amazon.motiongestures.GestureEvent;
 import com.amazon.motiongestures.GestureListener;
 import com.amazon.motiongestures.GestureManager;
+import com.zappos.firephone.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

@@ -1,4 +1,4 @@
-package com.zappos.firephone;
+package com.zappos.firephone.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.amazon.device.home.HomeManager;
 import com.amazon.euclid.widget.ZHeaderNavigationBar;
+import com.zappos.firephone.R;
 
 import amazon.widget.NavigationPane;
 import amazon.widget.NavigationPaneMenuItem;
@@ -23,7 +24,7 @@ import amazon.widget.SidePanelLayout;
  * Created by jitse on 9/10/14.
  */
 @SuppressWarnings("unused")
-public class BaseActivity extends Activity {
+public abstract class BaseActivity extends Activity {
     private static final String TAG = BaseActivity.class.getSimpleName();
 
     protected SidePanelLayout mSidePanelLayout;

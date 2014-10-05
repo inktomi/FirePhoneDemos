@@ -1,14 +1,16 @@
-package com.zappos.firephone;
+package com.zappos.firephone.activity;
 
 import android.os.Bundle;
+
+import com.zappos.firephone.R;
 
 import butterknife.ButterKnife;
 
 
 @SuppressWarnings("unused")
-public class MainActivity extends BaseActivity {
+public class HomeActivity extends BaseActivity {
 
-    private static final String TAG = MainActivity.class.getName();
+    private static final String TAG = HomeActivity.class.getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.zappos.firephone.NumericBadgeActivity">
+    tools:context="com.zappos.firephone.activity.NumericBadgeActivity">
 
     <Button
         android:id="@+id/btn_increment_numeric_badge_number"

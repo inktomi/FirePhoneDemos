@@ -5,7 +5,7 @@
  *
  * Use is subject to license terms.
  */
-package com.zappos.firephone;
+package com.zappos.firephone.activity;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -15,6 +15,8 @@ import android.util.Log;
 import com.amazon.headtracking.HeadTrackingEvent;
 import com.amazon.headtracking.HeadTrackingListener;
 import com.amazon.headtracking.HeadTrackingManager;
+import com.zappos.firephone.R;
+import com.zappos.firephone.view.CircleView;
 
 /**
  * Listens for HeadTrackingEvents, and draws a CircleView.

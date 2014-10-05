@@ -5,7 +5,7 @@
  *
  * Use is subject to license terms.
  */
-package com.zappos.firephone;
+package com.zappos.firephone.view;
 
 import android.R.color;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.zappos.firephone;
+package com.zappos.firephone.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import com.amazon.device.home.GroupedGridHeroWidget;
 import com.amazon.device.home.HeroWidgetIntent;
+import com.zappos.firephone.R;
+import com.zappos.firephone.receiver.WidgetBroadcastReceiver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +32,7 @@ public class HomeWidgetActivity extends BaseActivity {
     // Use this Receiver as the intent target for GridEntries in the app widget.
     private static final String TARGET_CLASS_NAME = WidgetBroadcastReceiver.class.getName();
 
-    // Arbitrary sample group size.
+    // Sample group size to give us some samples
     private static final int SAMPLE_GROUP_SIZE = 8;
 
     @Override

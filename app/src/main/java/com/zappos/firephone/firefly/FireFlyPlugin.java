@@ -1,4 +1,4 @@
-package com.zappos.firephone;
+package com.zappos.firephone.firefly;
 
 import android.util.Log;
 
@@ -8,13 +8,14 @@ import com.amazon.mw.entity.FacetType;
 import com.amazon.mw.plugin.DigitalEntityUI;
 import com.amazon.mw.plugin.PluginError;
 import com.amazon.mw.plugin.SimplePlugin;
+import com.zappos.firephone.R;
 
 /**
  * Created by jitse on 9/16/14.
  */
-public class FireFlyPlugin extends SimplePlugin {
+public class FireflyPlugin extends SimplePlugin {
     // TAG used for logging
-    private static String TAG = FireFlyPlugin.class.getSimpleName();
+    private static String TAG = FireflyPlugin.class.getSimpleName();
 
     // Configure the plugin to resolve product identifications by
     // adding the PRODUCT facet type to the DigitalEntityFilter object.
@@ -28,7 +29,7 @@ public class FireFlyPlugin extends SimplePlugin {
     // Define a factory method to create a DigitalEntityUI object for this plugin.
     @Override
     public DigitalEntityUI createDigitalEntityUI(DigitalEntity digitalEntity) {
-        return new FireFlyDigitalEntityUI(digitalEntity);
+        return new FireflyDigitalEntityUI(digitalEntity);
     }
 
     // Define an error callback in case something goes wrong; for example, the service takes
