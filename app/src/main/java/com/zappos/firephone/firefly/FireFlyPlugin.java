@@ -13,9 +13,9 @@ import com.zappos.firephone.R;
 /**
  * Created by jitse on 9/16/14.
  */
-public class FireflyPlugin extends SimplePlugin {
+public class FireFlyPlugin extends SimplePlugin {
     // TAG used for logging
-    private static String TAG = FireflyPlugin.class.getSimpleName();
+    private static String TAG = FireFlyPlugin.class.getSimpleName();
 
     // Configure the plugin to resolve product identifications by
     // adding the PRODUCT facet type to the DigitalEntityFilter object.
@@ -29,7 +29,7 @@ public class FireflyPlugin extends SimplePlugin {
     // Define a factory method to create a DigitalEntityUI object for this plugin.
     @Override
     public DigitalEntityUI createDigitalEntityUI(DigitalEntity digitalEntity) {
-        return new FireflyDigitalEntityUI(digitalEntity);
+        return new FireFlyDigitalEntityUI(digitalEntity);
     }
 
     // Define an error callback in case something goes wrong; for example, the service takes

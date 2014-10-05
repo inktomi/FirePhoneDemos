@@ -14,7 +14,7 @@ import com.zappos.firephone.R;
  * Define the DigitalEntityUI class for the fire fly plugin.
  * This UI is what is displayed once Firefly recognizes a DigitalEntity.
  */
-public class FireflyDigitalEntityUI extends DigitalEntityUI {
+public class FireFlyDigitalEntityUI extends DigitalEntityUI {
 
 
     public static final String EXTRA_TITLE = "extra_title";
@@ -22,7 +22,7 @@ public class FireflyDigitalEntityUI extends DigitalEntityUI {
     public static final String EXTRA_RATING = "extra_rating";
 
     // Construct a DigitalEntityUI
-    public FireflyDigitalEntityUI(DigitalEntity digitalEntity) {
+    public FireFlyDigitalEntityUI(DigitalEntity digitalEntity) {
         super(digitalEntity);
     }
 
@@ -39,7 +39,7 @@ public class FireflyDigitalEntityUI extends DigitalEntityUI {
     @Override
     public void onClick() {
         // Create an intent to send the product information to the FireflyActivity.
-        Intent sendNumber = new Intent(getContext(), FireflyActivity.class);
+        Intent sendNumber = new Intent(getContext(), FireFlyActivity.class);
         // Ensure that this Activity is marked as new, bringing it to focus.
         sendNumber.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

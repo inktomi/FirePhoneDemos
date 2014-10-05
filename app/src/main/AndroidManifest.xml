@@ -34,7 +34,7 @@
  
      exported="true" allows external applications or services (Firefly)
      to interact with this plugin. -->
-        <service android:name=".firefly.FireflyPlugin"
+        <service android:name=".firefly.FireFlyPlugin"
             android:permission="com.amazon.mw.permission.PLUGIN_CONSUMER"
             android:exported="true">
               <!-- Set the intent filter for Firefly plugins -->
@@ -82,7 +82,7 @@
                 android:value="com.zappos.firephone.MainActivity" />
         </activity>
 
-        <activity android:name=".firefly.FireflyActivity" />
+        <activity android:name=".firefly.FireFlyActivity" />
 
         <!-- WidgetBroadcastReceiver receives any intents thrown by the app widget to be consumed by this app. -->
         <receiver

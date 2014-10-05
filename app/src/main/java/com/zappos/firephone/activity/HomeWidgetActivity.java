@@ -76,19 +76,6 @@ public class HomeWidgetActivity extends BaseActivity {
 
     /**
      * Click handler defined and set in the layout.
-     * Empties app widget of any GridEntries.
-     */
-    @OnClick(R.id.btn_set_empty_groupedgridwidget)
-    public void onSetEmptyGroupedGrid() {
-        // Indicate that the button has been clicked.
-        Toast toast = Toast.makeText(getApplicationContext(), "HeroWidget Emptied", Toast.LENGTH_SHORT);
-        toast.show();
-
-        getAndUpdateGridWidget(true);
-    }
-
-    /**
-     * Click handler defined and set in the layout.
      * Empties app widget of any ListEntries.
      */
     @OnClick(R.id.btn_set_empty_groupedgridwidget)
