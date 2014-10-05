@@ -82,7 +82,8 @@
                 android:value="com.zappos.firephone.MainActivity" />
         </activity>
 
-        <activity android:name=".firefly.FireFlyActivity" />
+        <activity android:name=".firefly.FireFlyProductActivity" />
+        <activity android:name=".firefly.FireFlyPhoneActivity" />
 
         <!-- WidgetBroadcastReceiver receives any intents thrown by the app widget to be consumed by this app. -->
         <receiver

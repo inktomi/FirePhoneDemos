@@ -12,7 +12,7 @@ import com.zappos.firephone.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class FireFlyActivity extends Activity {
+public class FireFlyProductActivity extends Activity {
 
     @InjectView(R.id.tv_title)
     TextView mTvTitle;
@@ -28,7 +28,7 @@ public class FireFlyActivity extends Activity {
     @Override
     public void onCreate(Bundle b) {
         super.onCreate(b);
-        setContentView(R.layout.activity_fire_fly);
+        setContentView(R.layout.activity_fire_fly_product);
 
         ButterKnife.inject(this);
 

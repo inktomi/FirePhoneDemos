@@ -22,7 +22,7 @@ public class FireFlyPlugin extends SimplePlugin {
     @Override
     public DigitalEntityFilter getDigitalEntityFilter() {
         DigitalEntityFilter filter = new DigitalEntityFilter();
-        filter.addRequiredFacets(FacetType.PRODUCT);
+        filter.addAnyOfFacets(FacetType.PRODUCT, FacetType.PHONENUMBER);
         return filter;
     }
 

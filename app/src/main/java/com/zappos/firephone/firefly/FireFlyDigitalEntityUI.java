@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import com.amazon.mw.entity.DigitalEntity;
 import com.amazon.mw.entity.FacetType;
+import com.amazon.mw.entity.PhoneNumberFacet;
 import com.amazon.mw.entity.ProductDetailsFacet;
 import com.amazon.mw.plugin.DigitalEntityUI;
 import com.amazon.mw.plugin.Label;
@@ -18,6 +19,7 @@ public class FireFlyDigitalEntityUI extends DigitalEntityUI {
 
 
     public static final String EXTRA_TITLE = "extra_title";
+    public static final String EXTRA_PHONE = "extra_phone";
     public static final String EXTRA_UPC = "extra_upc";
     public static final String EXTRA_RATING = "extra_rating";
 
@@ -30,26 +32,51 @@ public class FireFlyDigitalEntityUI extends DigitalEntityUI {
     @Override
     public Label getLabel() {
         SimpleLabel label = new SimpleLabel();
-        label.setExperienceDescriptor(getContext().getString(R.string.plugin_label, "No label found"));
 
+        if (getDigitalEntity().getFacet(FacetType.PRODUCT) != null) {
+            label.setExperienceDescriptor(getContext().getString(R.string.product_label, "No label found"));
+        } else if (getDigitalEntity().getFacet(FacetType.PHONENUMBER) != null) {
+            label.setExperienceDescriptor(getContext().getString(R.string.phone_label, "No label found"));
+        }
         return label;
     }
 
     // Define an onClick() intent to send the identified product to FireflyActivity.
     @Override
     public void onClick() {
-        // Create an intent to send the product information to the FireflyActivity.
-        Intent sendNumber = new Intent(getContext(), FireFlyActivity.class);
-        // Ensure that this Activity is marked as new, bringing it to focus.
-        sendNumber.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
         ProductDetailsFacet facet = getDigitalEntity().getFacet(FacetType.PRODUCT);
+        if (facet != null) {
+            handleProduct(facet);
+        } else {
+            PhoneNumberFacet phoneFacet = getDigitalEntity().getFacet(FacetType.PHONENUMBER);
+            if (phoneFacet != null) {
+                handlePhoneFacet(phoneFacet);
+            }
+        }
+    }
 
-        sendNumber.putExtra(EXTRA_TITLE, facet.getTitle());
-        sendNumber.putExtra(EXTRA_UPC, facet.getUPC());
-        sendNumber.putExtra(EXTRA_RATING, facet.getCustomerRating());
+    private void handlePhoneFacet(PhoneNumberFacet facet) {
+        // Create an intent to send the product information to the FireFlyPhoneActivity.
+        Intent phoneIntent = new Intent(getContext(), FireFlyPhoneActivity.class);
+
+        // Ensure that this Activity is marked as new, bringing it to focus.
+        phoneIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        phoneIntent.putExtra(EXTRA_PHONE, facet.getPhoneNumber());
+        getContext().startActivity(phoneIntent);
+    }
+
+    private void handleProduct(ProductDetailsFacet facet) {
+        // Create an intent to send the product information to the FireFlyProductActivity.
+        Intent productIntent = new Intent(getContext(), FireFlyProductActivity.class);
+        // Ensure that this Activity is marked as new, bringing it to focus.
+        productIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        productIntent.putExtra(EXTRA_TITLE, facet.getTitle());
+        productIntent.putExtra(EXTRA_UPC, facet.getUPC());
+        productIntent.putExtra(EXTRA_RATING, facet.getCustomerRating());
 
         // Start the FireflyActivity.
-        getContext().startActivity(sendNumber);
+        getContext().startActivity(productIntent);
     }
 }
