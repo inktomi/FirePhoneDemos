@@ -34,7 +34,7 @@ public class GestureActivity extends BaseActivity implements GestureListener {
     GestureManager mGestureManager;
 
     // references to our images
-    private Integer[] mThumbIds = {
+    private final static Integer[] THUMBNAIL_RES_IDS = {
             R.drawable.saucony,
             R.drawable.nb,
             R.drawable.converse,
@@ -44,7 +44,7 @@ public class GestureActivity extends BaseActivity implements GestureListener {
     };
 
 
-    private Integer[] mLargeIds = {
+    private final static Integer[] LARGE_RES_IDS = {
             R.drawable.saucony2,
             R.drawable.nb2,
             R.drawable.converse2,
@@ -78,7 +78,7 @@ public class GestureActivity extends BaseActivity implements GestureListener {
     }
 
     private void updateMainImage(int position) {
-        mImgMain.setImageDrawable(getResources().getDrawable(mLargeIds[position]));
+        mImgMain.setImageDrawable(getResources().getDrawable(LARGE_RES_IDS[position]));
         mSidePanelLayout.getRightPanel().close();
     }
 
@@ -129,7 +129,7 @@ public class GestureActivity extends BaseActivity implements GestureListener {
         }
 
         public int getCount() {
-            return mThumbIds.length;
+            return THUMBNAIL_RES_IDS.length;
         }
 
         public Object getItem(int position) {
@@ -151,7 +151,7 @@ public class GestureActivity extends BaseActivity implements GestureListener {
                 imageView = (ImageView) convertView;
             }
             imageView.setTag(position);
-            imageView.setImageResource(mThumbIds[position]);
+            imageView.setImageResource(THUMBNAIL_RES_IDS[position]);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

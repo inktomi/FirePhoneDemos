@@ -1,6 +1,5 @@
 package com.zappos.firephone.activity;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -26,14 +25,18 @@ public class HomeWidgetActivity extends BaseActivity {
 
     private static final String TAG = HomeWidgetActivity.class.getSimpleName();
 
-    // Home API supports using local application resources as well as remote URLs to assets.
-    private final static Uri AMZN_BADGE_URI = Uri.parse("https://images-na.ssl-images-amazon.com/images/G/01/AmazonMobileApps/amazon-apps-store-us-white.png");
-
     // Use this Receiver as the intent target for GridEntries in the app widget.
     private static final String TARGET_CLASS_NAME = WidgetBroadcastReceiver.class.getName();
 
-    // Sample group size to give us some samples
-    private static final int SAMPLE_GROUP_SIZE = 8;
+    // references to our images for the widget
+    private final static Integer[] THUMBNAIL_IDS = {
+            R.drawable.saucony,
+            R.drawable.nb,
+            R.drawable.converse,
+            R.drawable.sketchers,
+            R.drawable.keen,
+            R.drawable.brooks
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +105,7 @@ public class HomeWidgetActivity extends BaseActivity {
                 // If widget is not empty, populate with Groups.
             } else {
                 // Create group with GridEntries.
-                GroupedGridHeroWidget.Group group = createSampleGroup(getString(R.string.group_group), SAMPLE_GROUP_SIZE);
+                GroupedGridHeroWidget.Group group = createSampleGroup(getString(R.string.group_group), THUMBNAIL_IDS.length);
                 groups.add(group);
 
                 // Sets the grouped grid.
@@ -143,12 +146,9 @@ public class HomeWidgetActivity extends BaseActivity {
             // You can also show a "play" icon in case this represents media
             gridEntry.setContentIntent(heroWidgetIntent);
 
-            // Alternate the thumbnail between a URI and a drawable resource.
-            if (0 == (i % 2)) {
-                gridEntry.setThumbnail(AMZN_BADGE_URI);
-            } else {
-                gridEntry.setThumbnail(R.drawable.smiley_icon);
-            }
+            // Set the icon for the grid view
+            // You can also setThumbnail("http://...") to load over the network connection
+            gridEntry.setThumbnail(THUMBNAIL_IDS[i]);
 
             // Adds the entry.
             gridEntries.add(gridEntry);
