@@ -26,15 +26,19 @@
     <string name="group1_item5">Group 1 Item 5</string>
     <string name="gesture_sensors">Gesture Sensors</string>
 
-    <!-- Home Wdiget -->
+    <!-- Home Widget -->
     <string name="no_intent_data">No Intent Data</string>
     <string name="tag_subsample_groupedgridwidget">Create GroupedGridHeroWidget</string>
     <string name="tag_subsample_empty_groupedgridwidget">Empty GroupedGridHeroWidget</string>
+    <string name="tag_subsample_grouped_list_widget">Create GroupedListHeroWidget</string>
+    <string name="tag_subsample_empty_grouped_list_widget">Empty GroupedListHeroWidget</string>
+
     <string name="tag_subsample_incrementbadge">Increment Badge Number</string>
     <string name="tag_subsample_decrementbadge">Decrement Badge Number</string>
 
     <!-- Grouped grid template -->
     <string name="group_empty_grid">Empty Grid</string>
+    <string name="group_empty_list">Empty List</string>
     <string name="group_empty_label">Empty Label</string>
     <string name="group_group">Group</string>
     <string name="group_group_with_icon">Group with icon URIs</string>

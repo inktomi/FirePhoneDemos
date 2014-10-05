@@ -19,4 +19,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/tag_subsample_empty_groupedgridwidget" />
+
+    <Button
+        android:id="@+id/btn_set_grouped_list_widget"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tag_subsample_grouped_list_widget"/>
+
+    <Button
+        android:id="@+id/btn_set_empty_grouped_list_widget"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tag_subsample_empty_grouped_list_widget" />
 </LinearLayout>
