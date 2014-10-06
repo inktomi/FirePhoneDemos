@@ -53,5 +53,8 @@
     <string name="phonenumber">phone number</string>
     <string name="intended_usage">intented usage</string>
     <string name="description">description</string>
+    <string name="fidelity">Fidelity:</string>
+    <string name="hi">Hi</string>
+    <string name="lo">Lo</string>
 
 </resources>

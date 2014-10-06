@@ -11,12 +11,20 @@ import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
+import com.amazon.headtracking.HeadTrackingConfiguration;
 import com.amazon.headtracking.HeadTrackingEvent;
 import com.amazon.headtracking.HeadTrackingListener;
+import com.amazon.headtracking.HeadTrackingListenerConfiguration;
 import com.amazon.headtracking.HeadTrackingManager;
 import com.zappos.firephone.R;
 import com.zappos.firephone.view.CircleView;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Listens for HeadTrackingEvents, and draws a CircleView.
@@ -30,6 +38,18 @@ public class HeadTrackingCircleActivity extends Activity implements HeadTracking
     private CircleView mCircleView;
     // HeadTrackingManager to register for HeadTrackingEvent.
     private HeadTrackingManager mHeadTrackingManager;
+
+    private HeadTrackingListenerConfiguration mHiConfig;
+    private HeadTrackingListenerConfiguration mLoConfig;
+
+    @InjectView(R.id.rb)
+    RadioGroup mRb;
+
+    @InjectView(R.id.rb_hi)
+    RadioButton mRbHi;
+
+    @InjectView(R.id.rb_lo)
+    RadioButton mRbLo;
 
     /**
      * Called when the activity is first created.
@@ -46,8 +66,19 @@ public class HeadTrackingCircleActivity extends Activity implements HeadTracking
             Log.e(TAG, "No HeadTrackingManager is available for this application", e);
         }
         setContentView(R.layout.circle);
+
+        ButterKnife.inject(this);
+
         // Grab a reference to the CircleView.
-        mCircleView = (CircleView) findViewById(R.id.circleView);
+        mCircleView = (CircleView) findViewById(R.id.circle_view);
+
+        mHiConfig = new HeadTrackingListenerConfiguration();
+        mHiConfig.setFidelity(HeadTrackingConfiguration.Fidelity.HIGH);
+        mHiConfig.setRate(HeadTrackingListenerConfiguration.MIN_RATE_HZ);
+
+        mLoConfig = new HeadTrackingListenerConfiguration();
+        mLoConfig.setFidelity(HeadTrackingConfiguration.Fidelity.LOW_POWER);
+        mHiConfig.setRate(HeadTrackingListenerConfiguration.MAX_RATE_HZ);
     }
 
     /**
@@ -72,7 +103,14 @@ public class HeadTrackingCircleActivity extends Activity implements HeadTracking
         super.onResume();
         if (mHeadTrackingManager != null) {
             // Register a new Listener.
-            mHeadTrackingManager.registerListener(this);
+
+            if (mRbHi.isChecked()) {
+                Log.d(TAG, "onResume, registering hi config");
+                mHeadTrackingManager.registerListener(this, mHiConfig);
+            } else {
+                Log.d(TAG, "onResume, registering low config");
+                mHeadTrackingManager.registerListener(this, mLoConfig);
+            }
         }
     }
 
@@ -92,5 +130,29 @@ public class HeadTrackingCircleActivity extends Activity implements HeadTracking
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+    }
+
+    @OnClick(R.id.rb_hi)
+    public void hiClicked() {
+        reregisterListener();
+    }
+
+    @OnClick(R.id.rb_lo)
+    public void loClicked() {
+        reregisterListener();
+    }
+
+    private void reregisterListener() {
+        if (mHeadTrackingManager != null) {
+            // Release the Listener.
+            mHeadTrackingManager.unregisterListener(this);
+        }
+        if (mRbHi.isChecked()) {
+            Log.d(TAG, "radio clicked, registering hi config");
+            mHeadTrackingManager.registerListener(this, mHiConfig);
+        } else {
+            Log.d(TAG, "radio clicked, registering low config");
+            mHeadTrackingManager.registerListener(this, mLoConfig);
+        }
     }
 }

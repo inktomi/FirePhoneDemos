@@ -5,10 +5,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fidelity"
+        android:textSize="@dimen/title_size"
+        />
+    <RadioGroup
+        android:id="@+id/rb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_hi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hi"
+            android:checked="true"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_lo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lo"
+            />
+
+    </RadioGroup>
 
     <com.zappos.firephone.view.CircleView
-        android:id="@+id/circleView"
+        android:id="@+id/circle_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 </LinearLayout>
