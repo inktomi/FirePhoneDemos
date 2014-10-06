@@ -63,7 +63,7 @@ public abstract class BaseActivity extends Activity {
         mHeaderNavBar.setOnHeaderActionsClickListener(new OnActionsMenuClickListener() {
             @Override
             public void onActionClick(MenuItem menuItem) {
-                // Handle your menu clicks here, as you normally would. 
+                // Handle your menu clicks here, as you normally would.
             }
         });
 
