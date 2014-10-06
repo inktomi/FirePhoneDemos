@@ -45,6 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     euclid:layout_depth="wrap_content"
+                    amazon:actionsMenu="@menu/menu_main"
                     amazon:headerTitle="@string/app_name"/>
             </com.amazon.euclid.widget.ZContainer>
 

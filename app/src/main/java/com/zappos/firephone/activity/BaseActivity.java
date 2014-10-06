@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -16,6 +17,7 @@ import com.zappos.firephone.R;
 
 import amazon.widget.NavigationPane;
 import amazon.widget.NavigationPaneMenuItem;
+import amazon.widget.OnActionsMenuClickListener;
 import amazon.widget.SidePanelLayout;
 
 /**
@@ -57,6 +59,13 @@ public abstract class BaseActivity extends Activity {
         mRightPanel = (LinearLayout) findViewById(R.id.right_panel);
         mFrameLayout = (FrameLayout) findViewById(R.id.content_panel);
         mHeaderNavBar = (ZHeaderNavigationBar) findViewById(R.id.zheadernavigationbar);
+
+        mHeaderNavBar.setOnHeaderActionsClickListener(new OnActionsMenuClickListener() {
+            @Override
+            public void onActionClick(MenuItem menuItem) {
+                // Handle your menu clicks here, as you normally would. 
+            }
+        });
 
         // Set the title given the label for the activity in the manifest.
         PackageManager packageManager = getPackageManager();

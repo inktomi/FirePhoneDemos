@@ -8,6 +8,14 @@
     <string name="title_activity_gesture">GestureActivity</string>
     <string name="title_home_widgets">Home Widgets</string>
 
+    <!-- Navigation Bar Assets -->
+    <string name="zheadernavbar_cart">cart_icon::cart_icon.scene</string>
+    <string name="zheadernavbar_search">search_icon::search_icon.scene</string>
+
+    <!-- Main Activity menus -->
+    <string name="menu_cart">Cart</string>
+    <string name="menu_search">Search</string>
+
     <!-- Gestures -->
     <string name="title_activity_side_panels">SidePanelsActivity</string>
     <string name="content_panel">Content Panel</string>
