@@ -1,7 +1,7 @@
 .idea/*
 .DS_Store
 *.iml
-gradle/wrapper/*
+
 gradlew.bat
 gradlew
 gradle.properties
