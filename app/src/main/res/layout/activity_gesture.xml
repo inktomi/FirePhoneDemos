@@ -1,52 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (c) 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
-<com.amazon.euclid.widget.ZShadowReceiver
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:euclid="http://schemas.android.com/apk/res/euclid"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    euclid:layout_depth="wrap_content"
     >
-    <com.amazon.euclid.widget.ZContainer
+
+    <com.amazon.euclid.widget.ZShadowReceiver
+        android:id="@+id/shadow_receiver"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         euclid:layout_depth="wrap_content"
-        euclid:autoPadding="true"
+        android:layout_centerInParent="true"
         >
-        <com.amazon.euclid.widget.ZRelativeLayout
-            android:id="@id/main_panel"
+        <com.amazon.euclid.widget.ZContainer
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            euclid:layout_depth="match_parent"
+            euclid:layout_depth="wrap_content"
+            euclid:autoPadding="true"
             >
-            <com.amazon.euclid.widget.ZImageView
-                android:id="@+id/img_main"
+            <com.amazon.euclid.widget.ZRelativeLayout
+                android:id="@id/main_panel"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:contentDescription="main image"
-                android:scaleType="fitCenter"
-                android:src="@drawable/saucony2"
-                android:layout_centerInParent="true"
-                euclid:layout_depth="wrap_content"
-                />
-            <RatingBar
-                android:id="@+id/rb_ratings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_main"
-                euclid:layout_depth="wrap_content"
-                android:visibility="gone"
-                />
-            <com.amazon.euclid.widget.ZTextView
-                android:id="@+id/tv_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rb_ratings"
-                android:visibility="gone"
-                android:textSize="25sp"
-                euclid:layout_depth="wrap_content"
-                />
-        </com.amazon.euclid.widget.ZRelativeLayout>
-    </com.amazon.euclid.widget.ZContainer>
-</com.amazon.euclid.widget.ZShadowReceiver>
+                android:layout_height="match_parent"
+                euclid:layout_depth="match_parent"
+                >
+                <com.amazon.euclid.widget.ZImageView
+                    android:id="@+id/img_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:contentDescription="@string/main_image"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/saucony2"
+                    android:layout_centerInParent="true"
+                    euclid:layout_depth="wrap_content"
+                    />
+                <com.amazon.euclid.widget.ZTextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_main"
+                    android:visibility="gone"
+                    android:textSize="25sp"
+                    euclid:layout_depth="wrap_content"
+                    />
+            </com.amazon.euclid.widget.ZRelativeLayout>
+        </com.amazon.euclid.widget.ZContainer>
+    </com.amazon.euclid.widget.ZShadowReceiver>
+    <RatingBar
+        android:id="@+id/rb_ratings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@id/shadow_receiver"
+        />
+</RelativeLayout>

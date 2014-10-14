@@ -8,6 +8,9 @@ import butterknife.ButterKnife;
 
 
 @SuppressWarnings("unused")
+/**
+ * The home page. Nothing special here.
+ */
 public class HomeActivity extends BaseActivity {
 
     private static final String TAG = HomeActivity.class.getName();
@@ -18,6 +21,9 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.inject(this);
+
+        //locking right panel because we don't have anything to show for on the right
+        lockRightPanel();
     }
 
 

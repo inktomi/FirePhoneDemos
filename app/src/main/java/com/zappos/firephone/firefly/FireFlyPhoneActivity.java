@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
- * Created by jitse on 10/5/14.
+ * An activity that is launched from a fire fly event to handle phone numbers.
  */
 public class FireFlyPhoneActivity extends Activity {
 

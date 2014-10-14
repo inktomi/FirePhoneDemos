@@ -28,7 +28,10 @@ public class FireFlyDigitalEntityUI extends DigitalEntityUI {
         super(digitalEntity);
     }
 
-    // Generate a label describing this Plugin's action. This will show in the firefly details section
+    /**
+     * Generate a label describing this Plugin's action. This will show in the firefly details section
+     * @return the Label
+     */
     @Override
     public Label getLabel() {
         SimpleLabel label = new SimpleLabel();
@@ -41,7 +44,9 @@ public class FireFlyDigitalEntityUI extends DigitalEntityUI {
         return label;
     }
 
-    // Define an onClick() intent to send the identified product to FireflyActivity.
+    /**
+     * Define an onClick() intent to send the identified product to FireflyActivity.
+     */
     @Override
     public void onClick() {
         ProductDetailsFacet facet = getDigitalEntity().getFacet(FacetType.PRODUCT);
@@ -55,6 +60,10 @@ public class FireFlyDigitalEntityUI extends DigitalEntityUI {
         }
     }
 
+    /**
+     * Sending phone information to new activity
+     * @param facet the PhoneNumberFacet
+     */
     private void handlePhoneFacet(PhoneNumberFacet facet) {
         // Create an intent to send the product information to the FireFlyPhoneActivity.
         Intent phoneIntent = new Intent(getContext(), FireFlyPhoneActivity.class);
@@ -66,6 +75,10 @@ public class FireFlyDigitalEntityUI extends DigitalEntityUI {
         getContext().startActivity(phoneIntent);
     }
 
+    /**
+     * Sending product information to new activity
+     * @param facet the ProductDetailsFacet
+     */
     private void handleProduct(ProductDetailsFacet facet) {
         // Create an intent to send the product information to the FireFlyProductActivity.
         Intent productIntent = new Intent(getContext(), FireFlyProductActivity.class);

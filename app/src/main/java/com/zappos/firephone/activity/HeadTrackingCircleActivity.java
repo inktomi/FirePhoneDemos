@@ -72,10 +72,12 @@ public class HeadTrackingCircleActivity extends Activity implements HeadTracking
         // Grab a reference to the CircleView.
         mCircleView = (CircleView) findViewById(R.id.circle_view);
 
+        //this is the setup for high accuracy readings
         mHiConfig = new HeadTrackingListenerConfiguration();
         mHiConfig.setFidelity(HeadTrackingConfiguration.Fidelity.HIGH);
         mHiConfig.setRate(HeadTrackingListenerConfiguration.MIN_RATE_HZ);
 
+        //this is the setup for low accuracy readings
         mLoConfig = new HeadTrackingListenerConfiguration();
         mLoConfig.setFidelity(HeadTrackingConfiguration.Fidelity.LOW_POWER);
         mHiConfig.setRate(HeadTrackingListenerConfiguration.MAX_RATE_HZ);
@@ -142,6 +144,9 @@ public class HeadTrackingCircleActivity extends Activity implements HeadTracking
         reregisterListener();
     }
 
+    /**
+     * updates the head tracking manager to use newly selected power settings
+     */
     private void reregisterListener() {
         if (mHeadTrackingManager != null) {
             // Release the Listener.

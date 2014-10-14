@@ -23,7 +23,6 @@ import amazon.widget.SidePanelLayout;
 /**
  * A BaseActivity is a good way to have a consistent navigation menu throughout your app. We use it here for that purpose.
  *
- * Created by jitse on 9/10/14.
  */
 @SuppressWarnings("unused")
 public abstract class BaseActivity extends Activity {
@@ -85,6 +84,7 @@ public abstract class BaseActivity extends Activity {
             Log.v(TAG, "Data was set, it is: " + data);
         }
 
+        //handle navigation menu item clicks
         mLeftPanel.setOnNavigationMenuItemClickListener(new NavigationPane.OnNavigationMenuItemClickListener() {
             @Override
             public boolean onNavigationMenuItemClick(NavigationPaneMenuItem navigationPaneMenuItem, View view) {
@@ -113,7 +113,7 @@ public abstract class BaseActivity extends Activity {
     }
 
     /**
-     * Set the content view used for activities which extend this. If we can, we put it inside of our main layout
+     * Set the content view used for activities which extend this. If we can, we put it inside our main layout
      * so that we have proper menus throughout the app.
      * @param layoutResID the layout to inflate into our main panel
      */
@@ -133,5 +133,19 @@ public abstract class BaseActivity extends Activity {
         if( null != mHeaderNavBar ){
             mHeaderNavBar.setMainTitle(title);
         }
+    }
+
+    /**
+     * Locks the right panel and make it non interactive.
+     */
+    protected void lockRightPanel() {
+        mSidePanelLayout.getRightPanel().setInteractive(false);
+    }
+
+    /**
+     * Unlocks the right panel and make it interactive.
+     */
+    protected void unLockRightPanel() {
+        mSidePanelLayout.getRightPanel().setInteractive(true);
     }
 }

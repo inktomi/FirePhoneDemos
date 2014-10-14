@@ -5,7 +5,7 @@
 
     <string name="app_name">Fire Phone Demo</string>
     <string name="head_tracking">Head Tracking</string>
-    <string name="title_activity_gesture">GestureActivity</string>
+    <string name="title_activity_gesture">Running Shoes</string>
     <string name="title_home_widgets">Home Widgets</string>
 
     <!-- Navigation Bar Assets -->
@@ -16,22 +16,16 @@
     <string name="menu_cart">Cart</string>
     <string name="menu_search">Search</string>
 
-    <!-- Gestures -->
-    <string name="title_activity_side_panels">SidePanelsActivity</string>
-    <string name="content_panel">Content Panel</string>
-    <string name="right_side_panel">Right Panel</string>
+    <!-- Navigation Menu -->
     <string name="nav_header">Navigation Header</string>
-    <string name="nav_1">Nav Item 1</string>
-    <string name="nav_2">Nav Item 2</string>
-    <string name="nav_3">Nav Item 3</string>
-    <string name="nav_4">Nav Item 4</string>
-    <string name="nav_5">Nav Item 5</string>
+    <string name="title_head_tracking">Head Tracking</string>
+    <string name="title_gesture">Gesture</string>
+    <string name="title_home_widget">Home Widget</string>
+    <string name="title_numeric_badges">Numeric Badges</string>
+
     <string name="nav_subheader">Subgroup</string>
     <string name="group1_item1">Group 1 Item 1</string>
     <string name="group1_item2">Group 1 Item 2</string>
-    <string name="group1_item3">Group 1 Item 3</string>
-    <string name="group1_item4">Group 1 Item 4</string>
-    <string name="group1_item5">Group 1 Item 5</string>
     <string name="gesture_sensors">Gesture Sensors</string>
 
     <!-- Home Widget -->
@@ -64,5 +58,6 @@
     <string name="fidelity">Fidelity:</string>
     <string name="hi">Hi</string>
     <string name="lo">Lo</string>
+    <string name="main_image">main image</string>
 
 </resources>

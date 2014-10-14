@@ -19,7 +19,10 @@ import com.zappos.firephone.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-
+/**
+ * An activity that shoes a running shoe. On the right panel, it will have recommendations for other
+ * running shoes
+ */
 public class GestureActivity extends BaseActivity implements GestureListener {
 
     @InjectView(R.id.img_main)
@@ -69,14 +72,23 @@ public class GestureActivity extends BaseActivity implements GestureListener {
         mGestureManager = GestureManager.createInstance(this);
     }
 
+    /**
+     * Unlocks the right panel so it will appear on a tilt. Creates the recommendations gridview and
+     * add it to the right panel
+     */
     private void setupRightPanel() {
-
+        //unlock it in case it was locked by something else
+        unLockRightPanel();
         View v = getLayoutInflater().inflate(R.layout.recommendations, mRightPanel);
 
         GridView mGridView = (GridView) v.findViewById(R.id.gv_recommendations);
         mGridView.setAdapter(new ImageAdapter(this));
     }
 
+    /**
+     * Updates the main image view with the new image
+     * @param position position for the image to be used
+     */
     private void updateMainImage(int position) {
         mImgMain.setImageDrawable(getResources().getDrawable(LARGE_RES_IDS[position]));
         mSidePanelLayout.getRightPanel().close();
@@ -86,7 +98,7 @@ public class GestureActivity extends BaseActivity implements GestureListener {
     protected void onResume() {
         super.onResume();
 
-        // Register listener only when it is needed
+        // Register listener only when it is needed. Registers to listen for PEEK gestures from the left and right directions
         if (mGestureManager != null) {
             Gesture peekGesture = Gesture.getGestureFromId(Gesture.PEEK);
             if (peekGesture != null) {
@@ -107,7 +119,7 @@ public class GestureActivity extends BaseActivity implements GestureListener {
 
     /**
      * We know this is a peek event, because that is what we registered for.
-     * @param gestureEvent
+     * @param gestureEvent the GestureEvent
      */
     @Override
     public void onGestureEvent(GestureEvent gestureEvent) {

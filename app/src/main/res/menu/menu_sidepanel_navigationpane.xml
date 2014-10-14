@@ -8,16 +8,16 @@
     <navheader android:title="Dynamic Perspective"/>
     <navitem
         android:id="@+id/menu_head_tracking"
-        android:title="Head Tracking"/>
+        android:title="@string/title_head_tracking"/>
     <navitem
         android:id="@+id/menu_gesture_sensors"
-        android:title="Gesture Sensors"/>
+        android:title="@string/title_gesture"/>
     <navitem
         android:id="@+id/menu_home_widget"
-        android:title="Home Widget"/>
+        android:title="@string/title_home_widget"/>
     <navitem
         android:id="@+id/menu_numeric_badge"
-        android:title="Numeric Badges"/>
+        android:title="@string/title_numeric_badges"/>
 
     <!-- Subgroup of navigation menu, with a dropdown list of nav items. -->
     <navgroup android:id="@+id/nav_panel_group1"
@@ -27,15 +27,6 @@
             android:checkable="false"/>
         <navitem android:id="@+id/group1_item2"
             android:title="@string/group1_item2"
-            android:checkable="false"/>
-        <navitem android:id="@+id/group1_item3"
-            android:title="@string/group1_item3"
-            android:checkable="false"/>
-        <navitem android:id="@+id/group1_item4"
-            android:title="@string/group1_item4"
-            android:checkable="false"/>
-        <navitem android:id="@+id/group1_item5"
-            android:title="@string/group1_item5"
             android:checkable="false"/>
     </navgroup>
 </navmenu>
